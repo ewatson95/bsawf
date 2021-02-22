@@ -1,0 +1,13 @@
+name: bsawf
+channels:
+- defaults
+- anaconda
+- conda-forge
+dependencies:
+  - python=3.7
+  - werkzeug=0.14.1
+  - black
+  - pip
+  - pip:
+    - flask==0.10.1
+    - gunicorn==19.4.5
