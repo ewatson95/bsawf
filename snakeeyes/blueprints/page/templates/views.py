@@ -1,19 +1,16 @@
-from flask import Flask
+from flask import Blueprint, render_template
 
-from snakeeyes.blueprints.page import page
+page = Blueprint('page', __name__, template_folder='templates')
 
-def create_app():
-    """
-    Creates a Flask application using the app factory pattern
+@page.route('/')
+def home():
+    return render_template('page/home.html')
 
-    return: Flask app
-    """
+@page.route('/terms')
+def terms():
+    return render_template('page/terms.html')
 
-    app = Flask(__name__, instance_relative_config=True)
+@page.route('/privacy')
+def privacy():
+    return render_template('page/privacy.html')
 
-    app.config.from_object('config.settings')
-    app.config.from_pyfile('settings.py', silent=True)
-
-    app.register_blueprint(page)
-
-    return app
