@@ -21,6 +21,6 @@ def create_app():
         Returns:
             string: The hello world response
         """
-        return "Hello World!"
+        return app.config['HELLO']
 
     return app
